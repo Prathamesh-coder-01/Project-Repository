@@ -20,9 +20,6 @@ const cycleText = document.getElementById("cycleText");
 const progressFill = document.getElementById("progressFill");
 const historyDiv = document.getElementById("history");
 
-/* 
----------------- STATE ---------------- 
-*/
 
 let state = JSON.parse(localStorage.getItem("currentSession")) || {
   phase: "study",
@@ -36,7 +33,8 @@ let state = JSON.parse(localStorage.getItem("currentSession")) || {
 let timer = null;
 let autoSaveTimer = null;
 
-/* ---------------- FORM VALIDATION (DEBOUNCED) ---------------- */
+
+
 let validateTimer;
 [sessionName, studyMin, breakMin, cycleCount].forEach(input => {
   input.addEventListener("input", () => {
@@ -71,7 +69,8 @@ function validateForm() {
   startBtn.disabled = !valid;
 }
 
-/* ---------------- START SESSION ---------------- */
+
+
 startBtn.addEventListener("click", () => {
   setup.style.display = "none";
   dashboard.style.display = "block";
@@ -79,7 +78,8 @@ startBtn.addEventListener("click", () => {
   startAutoSave();
 });
 
-/* ---------------- STUDY & BREAK ---------------- */
+
+
 function startStudy() {
   state.phase = "study";
   state.remainingTime = studyMin.value * 60;
@@ -97,11 +97,12 @@ function startBreak() {
   state.totalTime = state.remainingTime;
 
   phaseText.textContent = "Break ☕";
-  fetchMotivation(); // async quote
+  fetchMotivation(); 
   startTimer();
 }
 
-/* ---------------- TIMER ---------------- */
+
+
 function startTimer() {
   clearInterval(timer);
   timer = setInterval(() => {
@@ -135,7 +136,8 @@ function nextCycle() {
   }
 }
 
-/* ---------------- MOTIVATIONAL QUOTE ---------------- */
+
+
 async function fetchMotivation() {
   cycleText.textContent = "Loading motivation...";
   try {
@@ -147,14 +149,16 @@ async function fetchMotivation() {
   }
 }
 
-/* ---------------- AUTO SAVE ---------------- */
+
+
 function startAutoSave() {
   autoSaveTimer = setInterval(() => {
     localStorage.setItem("currentSession", JSON.stringify(state));
   }, 10000);
 }
 
-/* ---------------- INACTIVITY HANDLING ---------------- */
+
+
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) autoPause();
 });
@@ -172,13 +176,13 @@ function autoPause() {
   pauseBtn.textContent = "Resume";
 }
 
-/* ---------------- PAUSE BUTTON ---------------- */
+
 pauseBtn.addEventListener("click", () => {
   state.paused = !state.paused;
   pauseBtn.textContent = state.paused ? "Resume" : "Pause";
 });
 
-/* ---------------- END SESSION ---------------- */
+
 function endSession() {
   clearInterval(timer);
   clearInterval(autoSaveTimer);
@@ -199,7 +203,8 @@ function endSession() {
   renderHistory();
 }
 
-/* ---------------- HISTORY ---------------- */
+
+
 function renderHistory() {
   historyDiv.innerHTML = "<h3>Session History</h3>";
   const history = JSON.parse(localStorage.getItem("sessionHistory")) || [];
