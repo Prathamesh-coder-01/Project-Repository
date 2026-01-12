@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Study Focous Flow </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div id="setup">
+
+            <h1>Study Focus Flow </h1>
+
+            <label>Session Name</label>
+            <input type="text" id="sessionName" placeholder="Enter session name " />
+            <div class="error" id="errName"></div>
+
+            <label>Study Minutes</label>
+            <input type="number" id="studyMin" placeholder="Enter stusy minutes" />
+
+            <div class="error" id="errStudy"></div>
+
+            <label>Break Minutes</label>
+            <input type="number" id="breakMin" placeholder="Enter Berak minutes minmum 10 min" />
+            <div class="error" id="errBreak"></div>
+
+            <label>Cycles</label>
+            <input type="number" id="cycleCount" placeholder="ENter cycle (1-4)" />
+            <div class="error" id="errCycle"></div>
+
+            <button id="startBtn" class="start-btn" disabled>
+                Start Session:
+            </button>
+        </div>
+        <!-- Dashboard -->
+
+        <div class="dashboard" id="dashboard">
+            <div class="phase" id="phaseText"></div>
+            <div class="time" id="timeText">00:00</div>
+
+            <div class="progress">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <p id="cycleText"> </p>
+
+            <div class="controls">
+                <button id="pauseBtn">Pause</button>
+            </div>
+            <!-- HISTORY -->
+            <div class="history" id="history">
+                <h3>Session History</h3>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
