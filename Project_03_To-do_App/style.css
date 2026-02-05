@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141414, #1f1f1f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Card */
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: #2b2b2b;
+    padding: 40px 30px 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Title */
+.todo-app h2 {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.todo-app img {
+    width: 40px;
+}
+
+/* Input Row */
+.row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* Input */
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: #eee;
+    padding: 12px 16px;
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+/* Button */
+button {
+    border: none;
+    padding: 12px 28px;
+    background: #ff6b6b;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4d4d;
+    transform: scale(1.05);
+}
+
+/* List */
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 14px 8px 14px 50px;
+    margin-bottom: 10px;
+    background: #3a3a3a;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+    color: white;
+}
+
+ul li:hover {
+    background: #4a4a4a;
+}
+
+/* Checkbox */
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-image: url("images/unchecked.png");
+    background-size: cover;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Completed */
+ul li.checked {
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url("images/checked.png");
+}
+
+/* Delete button */
+ul li span {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+ul li span:hover {
+    color: #ff6b6b;
+}
+
+
+
+
