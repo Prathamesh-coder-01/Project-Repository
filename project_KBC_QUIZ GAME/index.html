@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KBC Quiz Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- START SCREEN -->
+  <div id="start-container" class="overlay">
+    <button id="start-button">🎮 Start Game</button>
+  </div>
+
+  <!-- GAME AREA -->
+  <div class="game-area">
+    <h1>Kaun Banega Crorepati</h1>
+
+    <div id="timer">Time Left: 30s</div>
+
+    <div id="question" class="question">Loading question...</div>
+
+    <div id="options" class="options"></div>
+
+    <div id="result"></div>
+
+    <button id="restart-btn" style="display:none;">Restart Game</button>
+
+    <audio id="timer-audio" src="sound/timeSound.mp3"></audio>
+    <audio  id="wrong-sound" src="sound/wrongSound.mp3"></audio>
+    <audio id="correct-sound" src="sound/correctSound.wav"></audio>
+    
+  </div>
+
+  <!-- PRIZE LADDER -->
+  <div class="prize-ladder-container">
+    <ul id="prize-ladder"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
